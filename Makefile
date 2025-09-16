@@ -2055,6 +2055,9 @@ ifdef KBUILD_EXTMOD
 	$(Q)$(MAKE) $(build)=$(objtree)/rust src=$(srctree)/rust $@
 else
 	$(Q)$(MAKE) $(build)=rust $@
+	@echo "Filtering for r8169_rs and kernel..."
+	$(Q)mv rust-project.json rust-project.json.bak
+	$(Q)jq '.crates |= map(select(.display_name == "r8169_rs" or .display_name == "kernel"))' rust-project.json.bak > rust-project.json
 endif
 
 # Script to generate missing namespace dependencies
