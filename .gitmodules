@@ -1,0 +1,4 @@
+[submodule "drivers/net/ethernet/realtek/r8169_rs"]
+	path = drivers/net/ethernet/realtek/r8169_rs
+	url = git@github.com:guilherme-n-l/r8169_rs.git
+	branch = master
